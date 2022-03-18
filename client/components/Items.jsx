@@ -13,7 +13,7 @@ class Items extends Component {
   }
 
   componentDidMount() {
-    fetch('/api/')
+    fetch('/api/allItems')
       .then(res => res.json())
       .then((items) => {
         if (!Array.isArray(items)) items = [];
@@ -59,6 +59,12 @@ class Items extends Component {
               className="btnSecondary"
             >
               Add New Item
+            </button>
+          </Link>
+
+          <Link to="/" className="backLink">
+            <button type="button" className="btnSecondary">
+                Back to home / search
             </button>
           </Link>
         </header>

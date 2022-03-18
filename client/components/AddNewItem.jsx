@@ -50,7 +50,7 @@ const AddNewItem = props => {
           console.log('Data: ', data);
         })
         .then(() => {
-          props.history.push('/');
+          props.history.push('/allItems');
         })
         .catch(err => console.log('AddNewItem fetch /api/addNewItem: ERROR: ', err));
     }
@@ -67,9 +67,14 @@ const AddNewItem = props => {
     <section className="mainSection addItemContainer">
       <header className="pageHeader">
         <h2>Add New Item</h2>
-        <Link to="/" className="backLink">
+        <Link to="/allItems" className="backLink">
           <button type="button" className="btnSecondary">
               Back to all items
+          </button>
+        </Link>
+        <Link to="/" className="backLink">
+          <button type="button" className="btnSecondary">
+              Back to home / search
           </button>
         </Link>
       </header>

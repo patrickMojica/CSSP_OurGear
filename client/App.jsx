@@ -4,7 +4,7 @@ import {Switch, Route} from 'react-router-dom';
 //import from components
 import Items from './components/Items';
 import addNewItem from './components/AddNewItem';
-
+import search from './components/search';
 import './styles.css';
 
 const App = props => {
@@ -15,8 +15,13 @@ const App = props => {
         <Switch>
           <Route
             exact
-            path='/'
+            path='/allItems'
             component={Items}
+          />
+          <Route
+            exact
+            path='/'
+            component={search}
           />
           {/* <Route
             exact

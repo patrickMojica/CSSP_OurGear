@@ -40,4 +40,8 @@ ourGearController.getItems = (req, res, next) => {
     });
 };
 
+ourGearController.getMatch = (req, res, next) => {
+  
+}
+
 module.exports = ourGearController;
