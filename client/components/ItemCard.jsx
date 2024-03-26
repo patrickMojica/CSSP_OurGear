@@ -1,5 +1,7 @@
 import React from 'react';
 
+const deleteItem = () => {};
+
 const ItemCard = ({info}) => {
   const {
     common_name, manufacturer, product_id, description, owner, 
@@ -16,6 +18,7 @@ const ItemCard = ({info}) => {
         <li className="itemDetail">Description: {description}</li>
         <li className="itemDetail">Owner: {owner}</li>
       </ul>
+      <button type="button" className="btnDel" onClick={deleteItem}>Delete Item</button>
     </article>
   );
 };

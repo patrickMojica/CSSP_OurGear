@@ -3,7 +3,7 @@ import {Switch, Route} from 'react-router-dom';
 
 //import from components
 import Items from './components/Items';
-import addNewItem from './components/AddNewItem';
+import AddNewItem from './components/AddNewItem';
 import search from './components/search';
 import './styles.css';
 
@@ -31,7 +31,7 @@ const App = props => {
           <Route
             exact
             path='/addNewItem'
-            component={addNewItem}
+            component={AddNewItem}
           />
         </Switch>
       </main>
