@@ -34,7 +34,7 @@ const AddNewItem = props => {
         description,
         owner
       };
-
+      
       fetch('/api/addNewItem', {
         method: 'POST',
         headers: {

@@ -1,12 +1,12 @@
 const path = require('path');
 const express = require('express');
+const router = require('./api');
+// const dotenv = require('dotenv');
 
 const app = express();
-
-const apiRouter = require('./api');
-
-const PORT = 3000;
-
+// const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+// dotenv.config();
 /**
  * handle parsing request body
  */
@@ -21,7 +21,7 @@ app.use(express.static(path.resolve(__dirname, '../client')));
 /**
  * define route handlers
  */
-app.use('/api', apiRouter);
+app.use('/api', router);
 
 // catch-all route handler for any requests to an unknown route
 app.use((req, res) => res.status(404).send('This is not the page you\'re looking for...'));

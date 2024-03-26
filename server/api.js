@@ -16,21 +16,20 @@ router.get('/allItems',
 
 router.post('/addNewPerson',
   ourGearController.addNewPerson,
-  (req, res) => res.status(200).json(res.locals.person)
+  (req, res) => res.status(200).json(req.locals.person)
 );
 
 router.post('/addNewItem',
   ourGearController.addNewItem,
-  (req, res) => res.status(200).json(res.locals.newItem)
+  (req, res) => res.status(200).json(req.locals.newItem)
 );
 
 // delete Item
 
 // detete person
 
-router.get('/search',
-  ourGearController.getMatch,
-  (req, res) => res.status(200).json(res.locals.results)
-);
+// getItemSearch
+
+// getPersonSearch
 
 module.exports = router;
