@@ -1,11 +1,21 @@
 import React from 'react';
 
-const deleteItem = () => {};
-
 const ItemCard = ({info}) => {
   const {
-    common_name, manufacturer, product_id, description, owner, 
+    item_id, common_name, manufacturer, product_id, description, owner, 
   } = info; 
+
+  const deleteItem = () =>  {
+    console.log(item_id);
+  
+    fetch(`api/deleteItem/${item_id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'Application/JSON'
+      },
+    })
+      .catch(err => console.log('deleteItem fetch /api/deleteItem: ERROR: ', err));
+  }
 
   return (
     <article className="card itemCard">

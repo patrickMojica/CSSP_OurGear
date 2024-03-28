@@ -16,15 +16,19 @@ router.get('/allItems',
 
 router.post('/addNewPerson',
   ourGearController.addNewPerson,
-  (req, res) => res.status(200).json(req.locals.person)
+  (req, res) => res.status(200).json(res.locals.person)
 );
 
 router.post('/addNewItem',
   ourGearController.addNewItem,
-  (req, res) => res.status(200).json(req.locals.newItem)
+  (req, res) => res.status(200).json(res.locals.newItem)
 );
 
 // delete Item
+router.delete('/deleteItem/:item_id',
+  ourGearController.deleteItem,
+  (req, res) => res.status(200).json(res.locals.item) // <<<
+);
 
 // detete person
 
