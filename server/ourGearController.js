@@ -66,7 +66,7 @@ ourGearController.getItems = (req, res, next) => {
   db.query(myQuery)
     .then(data => {
       res.locals.items = data.rows;
-      console.log(res.locals.items);
+      // console.log(res.locals.items);
       next();
     })
     .catch(err => {
@@ -79,9 +79,8 @@ ourGearController.getItems = (req, res, next) => {
 };
 
 ourGearController.deletePerson = (req, res, next) => {
-  // const { _id } = req.body;
-  const myQuery = 'DELETE FROM people WHERE _id = $1;';
-  const values = [req.body._id];
+  const _id = req.body;
+  const myQuery = `DELETE FROM people WHERE item_id = ${_id};`;
 
   db.query(myQuery, values)
     .then(data => {
@@ -99,11 +98,11 @@ ourGearController.deletePerson = (req, res, next) => {
 }
 
 ourGearController.deleteItem = (req, res, next) => {
-  // const { item_id } = req.body;
-  const myQuery = 'DELETE FROM items WHERE item_id = $1;';
-  const values = [req.body.item_id];
+  const item_id = req.params.item_id;
+  const myQuery = `DELETE FROM items WHERE item_id = ${item_id};`;
 
-  db.query(myQuery, values)
+  console.log(myQuery);
+  db.query(myQuery)
     .then(data => {
       res.locals.item = data.rows[0];
       next();
