@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
 import ItemCard from './ItemCard';
 
 class Items extends Component {
@@ -10,7 +9,26 @@ class Items extends Component {
       fetchedItems: false,
       items: [],
     };
+    // this.deleteItem = this.deleteItem.bind(this);
   }
+
+  // deleteItem(id) {
+    
+  //   console.log(item_id);
+  //   fetch(`api/deleteItem/${item_id}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'Application/JSON',
+  //       'Access-Control-Allow-Origin': '*',
+  //     },
+  //   })
+  //   .then(res => res.json())
+  //   .then(res => console.log(res))
+  //   .catch(err => console.log('deleteItem fetch /api/deleteItem: ERROR: ', err));
+
+
+  // };
+
 
   componentDidMount() {
     fetch('/api/allItems')

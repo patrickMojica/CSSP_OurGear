@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ItemCard from './ItemCard';
-
+// import withRouter from '../withRouterUtil.js';
 
 const useInput = init => {
   const [ value, setValue ] = useState(init);
@@ -18,21 +18,21 @@ const search = props => {
   const searchItems = (searchQueryOnChange) => {
     console.log("SearchQuery: ", searchQueryOnChange);
 
-    // componentDidMount() {
-    //   fetch('/api/allItems')
-    //     .then(res => res.json())
-    //     .then((items) => {
-    //       if (!Array.isArray(items)) items = [];
-    //       return this.setState({
-    //         items,
-    //         fetchedItems: true
-    //       });
-    //     })
-    //     .catch(err => console.log('items.componentDidMount: get items: ERROR: ', err));
-    // };
+    
   };
 
-  
+  // componentDidMount() {
+  //   fetch('/api/allItems')
+  //     .then(res => res.json())
+  //     .then((items) => {
+  //       if (!Array.isArray(items)) items = [];
+  //       return this.setState({
+  //         items,
+  //         fetchedItems: true
+  //       });
+  //     })
+  //     .catch(err => console.log('items.componentDidMount: get items: ERROR: ', err));
+  // }
 
   return (
     <section className="mainSection">
@@ -70,4 +70,5 @@ const search = props => {
   );
 };
 
-export default withRouter(search);
+// export default withRouter(search);
+export default search;

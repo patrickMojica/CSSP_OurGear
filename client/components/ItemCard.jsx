@@ -1,21 +1,41 @@
 import React from 'react';
+import { Navigate, useNavigate, Link, useParams } from 'react-router-dom';
+// import { baseUrl } from '../shared';
+// import NotFound from '../components/NotFound';
 
-const ItemCard = ({info}) => {
+// const ItemCard = ({info}) => {
+const ItemCard = (props) => {
   const {
     item_id, common_name, manufacturer, product_id, description, owner, 
-  } = info; 
-
-  const deleteItem = () =>  {
-    console.log(item_id);
+  } = props.info; 
   
+  const navigate = useNavigate();
+  // const [item, setItem] = useState();
+  // const [notFound, setNotFound] = useState();
+  // useEffect(() => {
+  //   console.log('C001BABE');
+  // });
+  // const navigate = useNavigate();
+  const deleteItem = () =>  {
+    
+    console.log(item_id);
     fetch(`api/deleteItem/${item_id}`, {
       method: 'DELETE',
       headers: {
-        'Content-Type': 'Application/JSON'
+        'Content-Type': 'Application/JSON',
+        'Access-Control-Allow-Origin': '*',
       },
     })
+      .then((res) => {
+        if(!res.ok) {
+          throw new Error('Something went wrong');
+        }
+        navigate('');
+        // return res.json(); depnds if my delete method returns ajson or not
+      })
       .catch(err => console.log('deleteItem fetch /api/deleteItem: ERROR: ', err));
-  }
+    // navigate('/allItems');
+  };
 
   return (
     <article className="card itemCard">
@@ -29,6 +49,7 @@ const ItemCard = ({info}) => {
         <li className="itemDetail">Owner: {owner}</li>
       </ul>
       <button type="button" className="btnDel" onClick={deleteItem}>Delete Item</button>
+
     </article>
   );
 };

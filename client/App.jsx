@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Routes, Route} from 'react-router-dom';
 
 //import from components
 import Items from './components/Items';
@@ -12,28 +12,28 @@ const App = props => {
     <div className='router'>
       <main>
         {/*NOTES: Block comment */}
-        <Switch>
+        <Routes>
           <Route
             exact
             path='/allItems'
-            component={Items}
+            element={<Items/>}
           />
           <Route
             exact
             path='/'
-            component={search}
+            element={<search/>}
           />
           {/* <Route
             exact
             path='/addUser'
-            component={addUsers}
+            element={<addUsers/>}
           /> */}
           <Route
             exact
             path='/addNewItem'
-            component={AddNewItem}
+            element={<AddNewItem/>}
           />
-        </Switch>
+        </Routes>
       </main>
     </div>
   );

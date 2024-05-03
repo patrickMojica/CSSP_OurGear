@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+// import withRouter from '../withRouterUtil.js';
 
 // Custom hook for handling input boxes
 // saves us from creating onChange handlers for them individually
@@ -38,13 +38,14 @@ const AddNewItem = props => {
       fetch('/api/addNewItem', {
         method: 'POST',
         headers: {
-          'Content-Type': 'Application/JSON'
+          'Content-Type': 'Application/JSON',
+          // 'Access-Control-Allow-Origin': '*',
         },
         body: JSON.stringify(body)
       })
         .then(resp => {
           resp.json();
-          console.log('Resp: ', resp.json());
+          //console.log('Resp: ', resp.json());
         })
         .then((data) => {
           console.log('Data: ', data);
@@ -61,7 +62,6 @@ const AddNewItem = props => {
     setNameError(null);
   }, [common_name]);
 
-  //
 
   return (
     <section className="mainSection addItemContainer">
@@ -118,4 +118,4 @@ const AddNewItem = props => {
   );
 };
 
-export default withRouter(AddNewItem);
+export default AddNewItem;
